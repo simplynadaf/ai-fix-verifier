@@ -1,0 +1,18 @@
+{
+  "repo": "ledgerlite-bughunt",
+  "bugs": [
+    {"id": "BUG1", "test": "test_bugs.py::test_BUG1_tax_uses_exact_decimal_rounding", "title": "tax_for uses float math, wrong cent on ties"},
+    {"id": "BUG2", "test": "test_bugs.py::test_BUG2_business_days_between_excludes_start_includes_end", "title": "business_days_between counts the start day, not the end day"},
+    {"id": "BUG3", "test": "test_bugs.py::test_BUG3_split_never_loses_a_cent", "title": "split_evenly loses cents when total does not divide"},
+    {"id": "BUG4", "test": "test_bugs.py::test_BUG4_quote_equals_invoice_with_discount", "title": "quote_total applies discount after tax, invoice before"},
+    {"id": "BUG5", "test": "test_bugs.py::test_BUG5_negative_quantity_is_rejected", "title": "line_total accepts negative quantity"},
+    {"id": "BUG6", "test": "test_bugs.py::test_BUG6_average_of_empty_period_is_zero", "title": "average_invoice divides by zero on empty list"},
+    {"id": "BUG7", "test": "test_bugs.py::test_BUG7_parse_amount_accepts_thousands_separators", "title": "parse_amount breaks on thousands separators"},
+    {"id": "BUG8", "test": "test_bugs.py::test_BUG8_add_months_clamps_and_rolls_the_year", "title": "add_months crashes on month-end and December"}
+  ],
+  "decoys": [
+    {"id": "DECOY1", "test": "test_decoys.py::test_DECOY1_bankers_rounding_is_intentional", "title": "round_cents is half-even by policy ACC-12"},
+    {"id": "DECOY2", "test": "test_decoys.py::test_DECOY2_non_usd_currency_is_rejected_on_purpose", "title": "parse_amount is USD-only by design"},
+    {"id": "DECOY3", "test": "test_decoys.py::test_DECOY3_holidays_are_not_skipped_on_purpose", "title": "add_business_days ignores holidays on purpose (ADR-7)"}
+  ]
+}

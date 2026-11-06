@@ -1,0 +1,41 @@
+[
+  {
+    "round": 1,
+    "commit": "70829450",
+    "seconds": 10.0,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 2,
+    "commit": "802b96f8",
+    "seconds": 9.3,
+    "claimed": 1,
+    "proven_tests": 1,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "TRUSTED",
+    "reasons": [],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  }
+]

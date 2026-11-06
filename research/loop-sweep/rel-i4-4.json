@@ -1,0 +1,38 @@
+[
+  {
+    "round": 1,
+    "commit": "212f5420",
+    "seconds": 3.7,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/split.py"
+    ]
+  },
+  {
+    "round": 2,
+    "commit": "849c50c2",
+    "seconds": 4.2,
+    "claimed": 1,
+    "proven_tests": 1,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "TRUSTED",
+    "reasons": [],
+    "files": [
+      "tests/test_split_report.py"
+    ]
+  }
+]

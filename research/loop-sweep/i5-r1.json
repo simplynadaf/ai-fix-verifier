@@ -1,0 +1,22 @@
+[
+  {
+    "round": 1,
+    "commit": "5c659f09",
+    "seconds": 11.5,
+    "claimed": 2,
+    "proven_tests": 3,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "claimed 2 fixes, can vouch for 1"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  }
+]

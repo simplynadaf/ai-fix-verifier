@@ -1,0 +1,70 @@
+[
+ [
+  "b01",
+  "An AI agent just opened a pull request on my repo. My gate said no. Then I changed one thing, the agent tried again, and the check turned green. Everything you are about to see is live, on GitHub, inside Kiro Crew."
+ ],
+ [
+  "b02",
+  "AI agents now open real pull requests. A 2026 study of agent pull requests found that failing tests are among the most common reasons agent fixes never get merged. So before a human reviews anything, I want a gate that checks the agent's work with evidence, not opinions."
+ ],
+ [
+  "b03",
+  "Here is the target. A small Python money library on GitHub, with eight open issues. Real bug reports, written the way users write them. We will hand issue number six to the agent. Business days are counted wrong."
+ ],
+ [
+  "b04",
+  "First, the gate. Proof Gate is a Kiro Crew app I built from scratch. I install it with one Kiro Crew CLI command, right here in Kiro Crew's own terminal."
+ ],
+ [
+  "b05",
+  "Then I enable it from the Apps library. It appears in the sidebar, with its own backend, agent, skill, and dashboard page."
+ ],
+ [
+  "b06",
+  "Now the agent. It runs on Amazon Nova Pro through Bedrock, and I create it as a Kiro Crew job with the CLI. The job's message is its config. Work issue six, one shot."
+ ],
+ [
+  "b07",
+  "Run it. The job hands the issue to Nova Pro, pushes a branch, opens a pull request, and the gate checks the commit. No model grades the model. Deterministic Python decides."
+ ],
+ [
+  "b08",
+  "On GitHub, the pull request gets a red check from Proof Gate. And the comment says exactly why."
+ ],
+ [
+  "b09",
+  "Here are the failed checks. Tamper scan, clean. Public API, intact. But the original tests, run against the agent's new code, now fail. It claimed one fix. The gate can verify zero. Rejected."
+ ],
+ [
+  "b10",
+  "Here is the change. I update the job with the CLI. Turn on gate feedback, and let it try three candidate fixes per round. The gate's visible findings go back to the agent. The hidden suite never does. And I teach Kiro Crew a lesson: every fix ships with a test that fails first."
+ ],
+ [
+  "b11",
+  "Run it again, on the same pull request. Each round, Nova Pro proposes three fixes. The gate measures every one, and only the best is pushed. The rounds repeat until the gate says trusted."
+ ],
+ [
+  "b12",
+  "Back on GitHub. A new commit on the same pull request, and the check is green. Trusted. Every check passed."
+ ],
+ [
+  "b13",
+  "In Kiro Crew, Proof Gate keeps the full record. Version one, rejected. Version two, trusted. Same agent, same issue. The difference is a judge it cannot argue with."
+ ],
+ [
+  "b14",
+  "To be honest about the limits. In my loop tests, issue six converged in nine of twelve runs. Issue four, in only two of eight. The gate never got easier. It stayed red until the code was right."
+ ],
+ [
+  "b15",
+  "The code is on GitHub. The Proof Gate app, the agent, and the demo repo with its issues. Clone it, point it at your own agent, and let evidence decide. If this helped, like, comment, and subscribe."
+ ],
+ [
+  "b07b",
+  "The log is live. Nova Pro reads the issue, rewrites the business days function, and opens the pull request. The gate runs the moment the commit lands."
+ ],
+ [
+  "b11b",
+  "Look at the log. Three candidates. One is trusted, two are rejected. The gate keeps the trusted one, and pushes it."
+ ]
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "round": 1,
+    "commit": "d750528e",
+    "seconds": 9.3,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 2,
+    "commit": "c2e237e4",
+    "seconds": 8.7,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "removed public API: due_date",
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 3,
+    "commit": "5803a327",
+    "seconds": 9.2,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 4,
+    "commit": "de48dbe1",
+    "seconds": 8.1,
+    "claimed": 1,
+    "proven_tests": 1,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "removed public API: due_date"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 5,
+    "commit": "fdd2177e",
+    "seconds": 8.9,
+    "claimed": 1,
+    "proven_tests": 1,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "TRUSTED",
+    "reasons": [],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "round": 1,
+    "commit": "d58dddb3",
+    "seconds": 7.1,
+    "claimed": 1,
+    "proven_tests": 1,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "TRUSTED",
+    "reasons": [],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "name": "proof-gate",
+  "version": "0.1.0",
+  "displayName": "Proof Gate",
+  "description": "The agent proposes. Python decides. Puts any agent's 'I fixed N bugs' claim on trial: re-runs the original tests against the new code, proves every new test fails before the fix, flags tampering, and scores against a hidden suite.",
+  "author": "sarvar_04",
+  "license": "MIT",
+  "iconPath": "assets/icon.png",
+  "tags": ["testing", "agents", "trust", "code-quality"],
+  "highlights": [
+    "Never asks the model whether it was right: deterministic Python is the judge",
+    "Re-runs the ORIGINAL tests against the new code, so editing a test cannot help",
+    "A new test only counts if it fails on the old code (RED) and passes on the new (GREEN)",
+    "Scores claimed fixes against a hidden suite the agent never saw"
+  ],
+  "agents": ["agents/proof-gate-fixer.json"],
+  "skills": ["skills/proof-gate"],
+  "backend": {
+    "entryPoint": "backend/server.py",
+    "type": "python",
+    "port": "auto",
+    "healthCheck": "/health",
+    "routes": "/apps/proof-gate/api"
+  },
+  "ui": {
+    "entry": "dist/index.mjs",
+    "pages": [
+      { "route": "/apps/proof-gate", "label": "Proof Gate", "icon": "Shield" }
+    ]
+  },
+  "permissions": {
+    "api": ["/apps/proof-gate/api/*", "/apps/proof-gate/api"],
+    "events": ["notification"],
+    "storage": true,
+    "network": false
+  },
+  "platform": { "os": ["macos", "linux"] }
+}

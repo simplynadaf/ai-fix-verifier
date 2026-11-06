@@ -1,0 +1,79 @@
+[
+  {
+    "round": 1,
+    "commit": "309bbd0a",
+    "seconds": 3.8,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/split.py"
+    ]
+  },
+  {
+    "round": 2,
+    "commit": "fd7dce35",
+    "seconds": 4.9,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "tests/test_split_report.py"
+    ]
+  },
+  {
+    "round": 3,
+    "commit": "6fd2d396",
+    "seconds": 4.3,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/split.py"
+    ]
+  },
+  {
+    "round": 4,
+    "commit": "df316243",
+    "seconds": 7.8,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/split.py",
+      "tests/test_split_report.py"
+    ]
+  }
+]

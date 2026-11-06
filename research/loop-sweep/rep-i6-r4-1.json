@@ -1,0 +1,89 @@
+[
+  {
+    "round": 1,
+    "commit": "a4c69a13",
+    "seconds": 9.3,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 2,
+    "commit": "def900de",
+    "seconds": 8.9,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": true,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "tampered with existing tests",
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py"
+    ]
+  },
+  {
+    "round": 3,
+    "commit": "0f8fed73",
+    "seconds": 7.2,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": true,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "tampered with existing tests",
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_proven_fixes.py"
+    ]
+  },
+  {
+    "round": 4,
+    "commit": "7594d9f5",
+    "seconds": 9.4,
+    "claimed": 1,
+    "proven_tests": 0,
+    "verified": 0,
+    "real_fixes": 0,
+    "regressions": 1,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "REJECTED",
+    "reasons": [
+      "1 original test(s) fail on the new code",
+      "claimed 1 fixes, can vouch for 0"
+    ],
+    "files": [
+      "ledgerlite/dates.py",
+      "tests/test_dates.py",
+      "tests/test_proven_fixes.py"
+    ]
+  }
+]

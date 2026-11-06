@@ -1,0 +1,20 @@
+[
+  {
+    "round": 1,
+    "commit": "c3156127",
+    "seconds": 8.5,
+    "claimed": 1,
+    "proven_tests": 1,
+    "verified": 1,
+    "real_fixes": 1,
+    "regressions": 0,
+    "tampered": false,
+    "false_positives": 0,
+    "verdict": "TRUSTED",
+    "reasons": [],
+    "files": [
+      "ledgerlite/invoice.py",
+      "tests/test_proven_fixes.py"
+    ]
+  }
+]

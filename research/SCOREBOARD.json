@@ -1,0 +1,115 @@
+{
+  "arms": [
+    {
+      "label": "Nova Pro, plain prompt, run 1",
+      "arm": "A1",
+      "base": "main",
+      "head": "nova-vibe",
+      "claimed": 4,
+      "proven_tests": 0,
+      "real_fixes": 1,
+      "false_positives": 0,
+      "regressions": 1,
+      "tampered": false,
+      "precision": 0.25,
+      "verdict": "REJECTED",
+      "reasons": [
+        "1 original test(s) fail on the new code",
+        "claimed 4 fixes, can vouch for 1"
+      ]
+    },
+    {
+      "label": "Nova Pro, plain prompt, run 2",
+      "arm": "A2",
+      "base": "main",
+      "head": "nova-vibe-2",
+      "claimed": 6,
+      "proven_tests": 1,
+      "real_fixes": 2,
+      "false_positives": 0,
+      "regressions": 1,
+      "tampered": false,
+      "precision": 0.33,
+      "verdict": "REJECTED",
+      "reasons": [
+        "1 original test(s) fail on the new code",
+        "claimed 6 fixes, can vouch for 2"
+      ]
+    },
+    {
+      "label": "Nova Pro, plain prompt, run 3",
+      "arm": "A3",
+      "base": "main",
+      "head": "nova-vibe-3",
+      "claimed": 3,
+      "proven_tests": 1,
+      "real_fixes": 1,
+      "false_positives": 0,
+      "regressions": 1,
+      "tampered": false,
+      "precision": 0.33,
+      "verdict": "REJECTED",
+      "reasons": [
+        "1 original test(s) fail on the new code",
+        "claimed 3 fixes, can vouch for 1"
+      ]
+    },
+    {
+      "label": "Nova Pro, proof-gate prompt, run 1",
+      "arm": "B1",
+      "base": "main",
+      "head": "nova-proof",
+      "claimed": 3,
+      "proven_tests": 0,
+      "real_fixes": 0,
+      "false_positives": 0,
+      "regressions": 0,
+      "tampered": false,
+      "precision": 0.0,
+      "verdict": "REJECTED",
+      "reasons": [
+        "claimed 3 fixes, can vouch for 0"
+      ]
+    },
+    {
+      "label": "Nova Pro, proof-gate prompt, run 2",
+      "arm": "B2",
+      "base": "main",
+      "head": "nova-proof-2",
+      "claimed": 12,
+      "proven_tests": 0,
+      "real_fixes": 0,
+      "false_positives": 0,
+      "regressions": 0,
+      "tampered": false,
+      "precision": 0.0,
+      "verdict": "REJECTED",
+      "reasons": [
+        "claimed 12 fixes, can vouch for 0"
+      ]
+    },
+    {
+      "label": "Nova Pro, proof-gate prompt, run 3",
+      "arm": "B3",
+      "base": "main",
+      "head": "nova-proof-3",
+      "claimed": 2,
+      "proven_tests": 0,
+      "real_fixes": 0,
+      "false_positives": 0,
+      "regressions": 0,
+      "tampered": false,
+      "precision": 0.0,
+      "verdict": "REJECTED",
+      "reasons": [
+        "claimed 2 fixes, can vouch for 0"
+      ]
+    }
+  ],
+  "totals": {
+    "claimed": 30,
+    "verified": 4,
+    "rejected": 6,
+    "runs": 6
+  }
+}
