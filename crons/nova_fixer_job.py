@@ -11,7 +11,7 @@ import json
 import subprocess
 from pathlib import Path
 
-DEMO = Path(os.environ.get("PROOF_GATE_HOME", Path.home() / "kirocrew-proof-gate"))  # the clone of this repo
+DEMO = Path(os.environ.get("PROOF_GATE_HOME", Path.home() / "ai-fix-verifier"))  # the clone of this repo
 LOG = DEMO / "work/nova-fixer.log"
 
 
