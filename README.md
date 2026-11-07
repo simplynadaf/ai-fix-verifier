@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="docs/github-cover.png" alt="Proof Before Merge: an Amazon Nova Pro agent opens a pull request, a deterministic Python gate says no, then after feedback and best-of-3 candidates the same PR earns a yes. No model grades the model." width="840" />
+<img src="docs/github-cover.png" alt="AI Fix Verifier: an Amazon Nova Pro agent opens a pull request, a deterministic Python gate says no, then after feedback and best-of-3 candidates the same PR earns a yes. No model grades the model." width="840" />
 
-# 🛡️ Proof Before Merge checks whether your AI agent actually fixed the bug
+# 🛡️ AI Fix Verifier checks whether your AI agent actually fixed the bug
 
 ### An AI agent says "fixed it" and opens a pull request. This gate reads the commit, not the promise: it checks that no test was weakened, no function was deleted, nothing regressed, and that the fix is backed by a test which fails on the old code and passes on the new. Deterministic Python decides. No model grades the model. The result posts straight to your PR as a status check.
 
@@ -14,7 +14,7 @@
 
 [![Watch the demo](https://img.shields.io/badge/▶%20Watch%20the%20live%20demo-FF0000?logo=youtube&logoColor=white)](#-links)
 
-> ### Most agent tools stop at "the tests passed". Proof Before Merge asks the harder question: did the agent prove the fix, or just claim it? Then it rejects or trusts the PR, with the evidence on the table.
+> ### Most agent tools stop at "the tests passed". AI Fix Verifier asks the harder question: did the agent prove the fix, or just claim it? Then it rejects or trusts the PR, with the evidence on the table.
 
 [What It Does](#-what-it-does) · [See It Decide](#-see-it-decide) · [What the Gate Checks](#-what-the-gate-checks) · [How It Works](#-how-it-works) · [Honest Numbers](#-honest-numbers) · [Getting Started](#-getting-started)
 
@@ -26,7 +26,7 @@
 
 An AI coding agent opens a pull request and says it fixed the bug. You cannot see, at a glance, whether it really did. It might have edited a test to make it pass, deleted the function that was failing, broken something else, or written a test that would have passed anyway.
 
-Proof Before Merge treats the agent's "I fixed it" as a claim to be checked, not a fact. For every commit it runs deterministic Python over the code and reports how many of the claimed fixes it can actually vouch for. The verdict, `TRUSTED` or `REJECTED`, is posted to the pull request as a commit status named `Proof Gate` plus a comment with the full table.
+AI Fix Verifier treats the agent's "I fixed it" as a claim to be checked, not a fact. For every commit it runs deterministic Python over the code and reports how many of the claimed fixes it can actually vouch for. The verdict, `TRUSTED` or `REJECTED`, is posted to the pull request as a commit status named `Proof Gate` plus a comment with the full table.
 
 > The key idea: **the agent proposes, Python decides.** An LLM never grades another LLM's work here.
 
@@ -142,8 +142,8 @@ The sample is small and the target repo is tiny. Treat these as a demonstration 
 Requirements: Kiro Crew, Python 3.11, `gh` logged in, AWS credentials with Bedrock access to `amazon.nova-pro-v1:0` in us-east-1.
 
 ```bash
-git clone https://github.com/simplynadaf/proof-before-merge ~/proof-before-merge
-cd ~/proof-before-merge
+git clone https://github.com/simplynadaf/ai-fix-verifier ~/ai-fix-verifier
+cd ~/ai-fix-verifier
 python3.11 -m venv .venv && .venv/bin/pip install pytest==8.3.4   # the gate's interpreter
 mkdir -p work && gh repo fork simplynadaf/ledgerlite --clone=false # or point at your own target repo
 
@@ -152,7 +152,7 @@ kirocrew app install ./proof-gate
 
 # the agent is a Kiro Crew script job; its message is its config
 mkdir -p ~/.kiro/crew/crons && cp crons/nova_fixer_job.py ~/.kiro/crew/crons/
-export PROOF_GATE_HOME=~/proof-before-merge
+export PROOF_GATE_HOME=~/ai-fix-verifier
 kirocrew cron add nova-fixer '{"issue": 6}' \
   --script ~/.kiro/crew/crons/nova_fixer_job.py:run --every 604800 --timeout 900 --timeout-secs 1200
 ```
@@ -170,7 +170,7 @@ kirocrew cron update <id> --message '{"issue": 6, "gate_feedback": true, "rounds
 ## 📁 Project Structure
 
 ```
-proof-before-merge/
+ai-fix-verifier/
 ├── README.md
 ├── LICENSE                     # MIT
 ├── proof-gate/                 # the Kiro Crew app (backend, dashboard UI, agent, skill)
@@ -221,7 +221,7 @@ Yes. Point the job at your repo, and swap the agent in `harness/nova_fixer.py`. 
 
 ## 🔗 Links
 
-- 🛡️ This repo: https://github.com/simplynadaf/proof-before-merge
+- 🛡️ This repo: https://github.com/simplynadaf/ai-fix-verifier
 - 🐞 Demo target with the issues: https://github.com/simplynadaf/ledgerlite
 - ▶️ Demo video: a live walk-through of a PR going from rejected to trusted (synthetic AI voiceover; disclosed)
 
