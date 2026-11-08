@@ -42,11 +42,11 @@ The agent ran twice on the same issue and the same pull request. The gate posted
 
 **Run 1, one shot: REJECTED.** The agent's change made an existing test fail, and it proved nothing. 1 fix claimed, 0 verified.
 
-<img src="docs/screenshots/pr-comment-rejected.png" alt="GitHub PR comment: Proof Gate REJECTED. A table shows tamper scan pass, public API intact pass, original tests 16/17 pass with one failure, new tests 0 proven of 2 added, claimed 1 verified 0. Reasons: 1 original test fails on the new code." width="760" />
+<img src="docs/screenshots/pr-comment-rejected.png" alt="GitHub PR comment: Proof Gate REJECTED. A table shows tamper scan pass, public API intact pass, original tests 16/17 pass with one failure, new tests 0 proven of 0 added, claimed 1 verified 0. Reasons: 1 original test fails on the new code." width="760" />
 
 **Run 2, same PR, after gate feedback and best-of-3 candidates: TRUSTED.** Every check green, and the fix is backed by a test that failed on the old code. 1 claimed, 1 verified.
 
-<img src="docs/screenshots/pr-comment-trusted.png" alt="GitHub PR comment: Proof Gate TRUSTED. The table shows all checks pass, 17/17 original tests, 1 proven of 2 added, claimed 1 verified 1. The two tests the agent added are listed with proven or vacuous labels." width="760" />
+<img src="docs/screenshots/pr-comment-trusted.png" alt="GitHub PR comment: Proof Gate TRUSTED. The table shows all checks pass, 17/17 original tests, 1 proven of 3 added, claimed 1 verified 1. The three tests the agent added are listed, two vacuous and one proven." width="760" />
 
 </div>
 
