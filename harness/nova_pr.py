@@ -151,7 +151,9 @@ def main():
         state = "success" if s["verdict"] == "TRUSTED" else "failure"
         gg.gh("api", f"repos/{a.gh}/statuses/{head}", "-f", f"state={state}", "-f", "context=Proof Gate",
               "-f", f"description={s['verdict']}: claimed {s['claimed']}, verified {s['verified']}"[:140])
-        gg.gh("pr", "comment", str(pr_no), "--repo", a.gh, "--body-file", "-", input_text=gg.comment_body(res, pr_no))
+        final_round = (not a.gate_feedback) or s["verdict"] == "TRUSTED" or rnd >= a.rounds
+        if final_round:  # one visible comment per run: v1 rejected, v2 trusted (1 reject + 1 pass)
+            gg.gh("pr", "comment", str(pr_no), "--repo", a.gh, "--body-file", "-", input_text=gg.comment_body(res, pr_no))
         record_trial(res, f"PR #{pr_no} issue #{a.issue}, {version}, round {rnd}", "V2" if a.gate_feedback else "V1", rnd, pr_url)
         say("GATE", f"round {rnd}: {s['verdict']}  claimed {s['claimed']}  verified {s['verified']}  "
                     f"regressions {s['regressions']}  " + ("; ".join(s["reasons"]) if s["reasons"] else "all checks passed"))
