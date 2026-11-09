@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/github-cover.png" alt="AI Fix Verifier: an Amazon Nova Pro agent opens a pull request, a deterministic Python gate says no, then after feedback and best-of-3 candidates the same PR earns a yes. No model grades the model." width="840" />
+<img src="docs/github-cover.png" alt="AI Fix Verifier: an AI agent opens a pull request claiming a fix, a deterministic Python gate reads the commit and decides REJECTED or TRUSTED. No test weakened, no regression, and the fix is backed by a test that fails first and passes after. Powered by Amazon Nova Pro as a Kiro Crew job." width="100%" />
 
 # 🛡️ AI Fix Verifier checks whether your AI agent actually fixed the bug
 
