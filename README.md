@@ -12,7 +12,7 @@
 [![No LLM judge](https://img.shields.io/badge/No%20model%20grades%20the%20model-2fd27a)](#-the-rule-it-never-bends)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8b5cf6)](LICENSE)
 
-[![Watch the demo](https://img.shields.io/badge/▶%20Watch%20the%20live%20demo-FF0000?logo=youtube&logoColor=white)](#-links)
+[![Watch the demo](https://img.shields.io/badge/▶%20Watch%20the%20live%20demo-FF0000?logo=youtube&logoColor=white)](https://youtu.be/hrvoXZyMmk0)
 
 > ### Most agent tools stop at "the tests passed". AI Fix Verifier asks the harder question: did the agent prove the fix, or just claim it? Then it rejects or trusts the PR, with the evidence on the table.
 
@@ -222,7 +222,7 @@ Yes. Point the job at your repo, and swap the agent in `harness/nova_fixer.py`. 
 
 - 🛡️ This repo: https://github.com/simplynadaf/ai-fix-verifier
 - 🐞 Demo target with the issues: https://github.com/simplynadaf/ledgerlite
-- ▶️ Demo video: a live walk-through of a PR going from rejected to trusted (synthetic AI voiceover; disclosed)
+- ▶️ Demo video: https://youtu.be/hrvoXZyMmk0 (a live walk-through of a PR going from rejected to trusted; synthetic AI voiceover, disclosed)
 
 ---
 
