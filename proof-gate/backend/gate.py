@@ -80,12 +80,39 @@ def run_pytest(python: str, cwd: Path, targets: List[str], pythonpath: Path, roo
         outcomes: Dict[str, str] = {}
         if xml_path.exists():
             for case in ET.parse(xml_path).getroot().iter("testcase"):
-                path = case.get("classname", "").replace(".", "/") + ".py"
-                key = f"{path}::{case.get('name')}"
+                key = _test_key(cwd, rootdir, case.get("classname", ""), case.get("name", ""))
                 kids = {c.tag for c in case}
                 outcomes[key] = ("failed" if "failure" in kids else "error" if "error" in kids
                                  else "skipped" if "skipped" in kids else "passed")
         return {"outcomes": outcomes, "rc": rc, "tail": tail}
+
+
+def _test_key(cwd: Path, rootdir: Optional[Path], classname: str, name: str) -> str:
+    """Build a pytest node id from a junitxml classname.
+
+    The classname is the dotted path of the containing scope, so for a test
+    inside a class it includes the class name (pkg.mod.TestThing). Turning
+    dots into slashes blindly invents a file that does not exist, and such an
+    id can never be re-run as a pytest target. Instead, strip trailing
+    components until the remainder names a real .py file; the stripped
+    components become ::Class qualifiers.
+    """
+    parts = [p for p in classname.split(".") if p]
+    for base in (cwd, rootdir):
+        if base is None:
+            continue
+        for i in range(len(parts), 0, -1):
+            rel = "/".join(parts[:i]) + ".py"
+            if (base / rel).is_file():
+                return "::".join([rel, *parts[i:], name])
+    return classname.replace(".", "/") + ".py::" + name
+
+
+def _test_targets(root: Path) -> List[str]:
+    """Files to name as pytest targets: every test file except conftest.py,
+    which pytest must load as a plugin, never as a target (naming one aborts
+    collection). The files are still copied into the tree, so they load."""
+    return [t for t in _test_files(root) if not t.endswith("conftest.py")]
 
 
 def _test_files(root: Path) -> List[str]:
@@ -158,7 +185,7 @@ def pristine_run(python: str, head_tree: Path, base_tree: Path) -> dict:
         for rel in base_tests:  # overwrite whatever the agent did to the originals
             (work / rel).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(base_tree / rel, work / rel)
-        res = run_pytest(python, work, base_tests, work)
+        res = run_pytest(python, work, _test_targets(base_tree), work)
     out = res["outcomes"]
     failures = sorted(k for k, v in out.items() if v in ("failed", "error"))
     return {"total": len(out), "passed": sum(v == "passed" for v in out.values()), "failures": failures}
@@ -236,7 +263,11 @@ def verify(repo: str, base: str, head: str, python: str, hidden: Optional[str] =
         result["pristine"] = pristine_run(python, head_tree, base_tree)
 
         stage("new_tests", "proving each added test is RED on old code, GREEN on new")
-        base_visible = run_pytest(python, base_tree, [], base_tree)["outcomes"]
+        # The base run must cover the same tests as the pristine run. A bare
+        # pytest run respects the repo's testpaths, so tests outside it (an
+        # integration_tests/ directory, say) are never seen on base and their
+        # pre-existing failures would read as regressions below.
+        base_visible = run_pytest(python, base_tree, _test_targets(base_tree), base_tree)["outcomes"]
         result["new_tests"] = new_test_proof(python, base_tree, head_tree, base_visible)
 
         if hidden:
@@ -244,7 +275,12 @@ def verify(repo: str, base: str, head: str, python: str, hidden: Optional[str] =
             result["ground_truth"] = ground_truth(python, base_tree, head_tree, Path(hidden).resolve())
 
     gt = result.get("ground_truth")
-    regressions = len(result["pristine"]["failures"])
+    # A pristine failure is only a regression if the test did not already fail
+    # on the base code. Suites with pre-existing failures (missing sample data,
+    # missing optional deps) are otherwise auto-rejected even when the failure
+    # list is identical before and after the change.
+    base_failures = {k for k, v in base_visible.items() if v in ("failed", "error")}
+    regressions = sum(1 for k in result["pristine"]["failures"] if k not in base_failures)
     proven = sum(t["verdict"] == "proven" for t in result["new_tests"])
     real = gt["real_fixes"] if gt else None
     changed = bool(_git(repo_p, "diff", "--name-only", base, head).strip())
